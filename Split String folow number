@@ -1,0 +1,25 @@
+public class String1 {
+	int vt(String s) {
+		String re="";
+		for (int i=0;i<s.length();i++) {
+			if (s.charAt(i)<='9') re=re+s.charAt(i);
+		}
+		return Integer.parseInt(re);
+	}
+		  public String order(String words) {
+			  if (words=="") return "";
+			 String[] t=words.split(" ");
+			 String[] r=new String[t.length];
+			 for (String i:t) {
+				 r[vt(i)-1]=i;
+			 }
+			 String result = String.join(" ", r);
+		    return result;
+		  }
+
+	public static void main(String [] args) {
+		String1 a= new String1();
+		System.out.println(a.order("is2 Thi1s T4est 3a"));
+		System.out.println(a.order("4of Fo1r pe6ople g3ood th5e the2"));
+		}
+}
