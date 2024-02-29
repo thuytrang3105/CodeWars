@@ -1,0 +1,27 @@
+package tamthoi;
+
+public class String1 {
+	public String makeComplement(String dna) {
+		int n=dna.length();
+		String s="";
+		char t;
+		for (int i=0;i<n;i++) {
+			t=dna.charAt(i);
+			if (t=='A') s+='T';
+			else {
+				if (t=='T') s+='A';
+				else {
+					if (t=='C') s+='G';
+					else s+='C';
+				}
+			}
+		}
+		return s;
+	}
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.makeComplement("AAAA") );
+		System.out.println(s.makeComplement("TAACG") );
+		System.out.println(s.makeComplement("CATA") );
+	}
+}
