@@ -1,0 +1,23 @@
+public class String1 {
+	public int diem(String s) {      //Tính iểm của chữ
+		int diem=0;
+		for (int i=0;i<s.length();i++) {
+			diem=diem+(s.charAt(i)-97+1); // kí tự a=97 nên muốn tính thì phải lấy mã thập phân -96
+		}
+		return diem;
+	}
+	public String high(String s) {
+		String[] a=s.split(" ");        //Tách xau ra các chữ nhỏ
+		String max="";
+		for (String i:a) {              //gán i lần lượt là các phần tử của a
+			if ( diem(max)<diem(i)) max=i;
+		}
+		return max;
+	}
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.high("man i need a taxi up to ubud") );
+		System.out.println(s.high("what time are we climbing up to the volcano") );
+		System.out.println(s.high("take me to semynak"));
+	}
+}
