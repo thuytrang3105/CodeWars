@@ -1,0 +1,25 @@
+public class String1 {
+	static String toCamelCase(String s){
+		s=toCamelCase2(s);
+	    String[] a=s.split("-");
+	    for (int i=1;i<a.length;i++) {
+	    	String tam=""+Character.toUpperCase(a[i].charAt(0))+a[i].substring(1);
+	    	a[i]=tam;
+	    }
+	    return String.join("", a);
+	  }
+	static String toCamelCase2(String s){
+	    String[] a=s.split("_");
+	    for (int i=1;i<a.length;i++) {
+	    	String tam=""+Character.toUpperCase(a[i].charAt(0))+a[i].substring(1);
+	    	a[i]=tam;
+	    }
+	    return String.join("", a);
+	  }
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.toCamelCase( "the-stealth-sarrior") );
+		System.out.println(s.toCamelCase( "The_stealth-Warrior") );
+		System.out.println(s.toCamelCase( "The_Stealth_Warrior"));
+	}
+}
