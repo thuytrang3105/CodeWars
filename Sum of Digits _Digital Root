@@ -1,0 +1,21 @@
+public class String1 {
+	public static int digital_root(int n) {
+	    int tong= 0;
+      while (n>0) {
+			tong+=n%10;
+			n/=10;
+		}
+	    if (tong>9) return digital_root(tong);
+	    else return tong;
+	  }
+public static int digital_root(int n) {        // copy ngkhac
+    return (n != 0 && n%9 == 0) ? 9 : n % 9;  // theo như tính toán thử nghiệp thì kết quả chính xác là phần dư khi chia cho 9
+  }
+
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.digital_root(16));
+		System.out.println(s.digital_root(456));
+		System.out.println(s.digital_root(46));
+	}
+}
