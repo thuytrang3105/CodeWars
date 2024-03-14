@@ -1,0 +1,84 @@
+public class String1 {
+	public String dv(int x) {
+		switch (x) {
+		case 0 : return "";
+		case 1 : return "I";
+		case 2 : return "II";
+		case 3 : return "III";
+		case 4 : return "IV";
+		case 5 : return "V";
+		case 6 : return "VI";
+		case 7 : return "VII";
+		case 8 : return "VIII";
+		default : return "IX";
+		}
+	}
+	public String chuc(int x) {
+		switch (x) {
+		case 9 : return "XC";
+		case 1 : return "X";
+		case 2 : return "XX";
+		case 3 : return "XXX";
+		case 4 : return "XL";
+		case 5 : return "L";
+		case 6 : return "LX";
+		case 7 : return "LXX";
+		case 8 : return "LXXX";
+		default : return "";
+		}
+	}
+	public String tram(int x) {
+		switch (x) {
+		case 9 : return "CM";
+		case 1 : return "C";
+		case 2 : return "CC";
+		case 3 : return "CCC";
+		case 4 : return "CD";
+		case 5 : return "D";
+		case 6 : return "DC";
+		case 7 : return "DCC";
+		case 8 : return "DCCC";
+		default : return "";
+		}
+	}
+	public String nghin(int x) {
+		switch (x) {
+		case 1 : return "M";
+		case 2 : return "MM";
+		case 3 : return "MMM";
+		default : return "";
+		}
+	}
+	public String solution(int n) {
+		String re="";
+		re=dv(n%10)+re;
+		n/=10;
+		re=chuc(n%10)+re;
+		n/=10;
+		re=tram(n%10)+re;
+		n/=10;
+		re=nghin(n)+re;
+
+        return re;
+    }
+public String solution2(int n) {     // của ngkhac
+        final String[] digit = {"", "I", "II", "III", "IV", "V", "VI", "VII",
+                                  "VIII", "IX"};
+        final String[] ten = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX",
+                                  "LXXX", "XC"};
+        final String[] hundred = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC",
+                                  "DCCC", "CM"};
+        final String[] thousand = {"", "M", "MM", "MMM"};
+        
+        String result="";
+        result = thousand[n/1000] + hundred[n%1000/100] + ten[n%100/10] +
+                  digit[n%10];
+        return result;
+    }
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.solution(999));
+		System.out.println(s.solution(1));
+		System.out.println(s.solution(675));
+	}
+}
