@@ -1,0 +1,22 @@
+public class String1 {
+
+	public static int duplicateCount(String text) {
+			text=text.toLowerCase();
+			int re=0;
+			int[] arr=new int[26];
+			for (char c : text.toCharArray()) {
+				arr[c-'a']++;
+			}
+			for (int i=0;i<26;i++) {
+				if(arr[i]>1) re++;
+			}
+			return re;
+	  }
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.duplicateCount("abcde"));
+		System.out.println(s.duplicateCount("thuytrang"));
+		System.out.println(s.duplicateCount("abababer"));
+		System.out.println(s.duplicateCount("indivisibility"));
+	}
+}
