@@ -1,0 +1,31 @@
+public class CountIPAddresses {
+
+	public static long ipsBetween(String start, String end) {      //cach 1
+		return convertToLong(end) - convertToLong(start);
+	}
+  
+  private static long convertToLong(String ip) {
+    long res = 0;
+    for (String s : ip.split("[.]") )
+      res = res * 256 + Long.parseLong(s);
+    return res;
+  }
+public static long ipsBetween(String start, String end) {      //cach 2
+		String[] a=start.split("\\.");
+		String[] b=end.split("\\.");
+		long re=0;int t=3,tam;
+		for (int i=0;i<4;i++) {
+			tam=( Integer.parseInt(b[i])-Integer.parseInt(a[i]));
+			re+=(long) (tam * Math.pow(256,t));
+			t--;
+		}
+		return re;
+	}
+	public static void main(String[] args) {
+		String1 s=new String1() ;
+		System.out.println(s.ipsBetween("10.0.0.0", "10.0.0.50"));
+		System.out.println(s.ipsBetween("20.0.0.10", "20.0.1.0"));
+		System.out.println(s.ipsBetween("0.0.0.0", "255.255.255.255"));
+		System.out.println(s.ipsBetween("10.0.0.0", "10.0.1.50"));
+	}
+}
